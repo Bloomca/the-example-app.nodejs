@@ -2,6 +2,7 @@ extends layout
 
 include mixins/_breadcrumb
 include mixins/_courseCard
+include mixins/_ctfl
 
 block content
   .layout-no-sidebar
@@ -17,7 +18,8 @@ block content
               a.sidebar-menu__link(href=`/courses${queryString}` class=(currentPath.endsWith('/courses') ? 'active' : '')) #{translate('allCoursesLabel', currentLocale.code)}
             each category in categories
               li.sidebar-menu__item
-                a.sidebar-menu__link(href=`/courses/categories/${category.fields.slug}${queryString}` class=(currentPath.endsWith(category.fields.slug) ? 'active' : '')) #{category.fields.title}
+                +tooltip(category)
+                  a.sidebar-menu__link(href=`/courses/categories/${category.fields.slug}${queryString}` class=(currentPath.endsWith(category.fields.slug) ? 'active' : '')) #{category.fields.title}
     section.layout-sidebar__content
       .courses
         h1= title

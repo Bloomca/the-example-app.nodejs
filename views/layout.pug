@@ -193,6 +193,14 @@ html
             use(xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/icons/icons.svg#cross")
 
   script(src='/scripts/index.js')
+  script(src='/scripts/contentful-wizard.js')
+  script.
+    CTFLWizard.init({
+        spaceId: 'qz0n5cdakyl9',
+        key: '580d5944194846b690dd89b630a1cb98a0eef6a19b860ef71efc37ee8076ddb8' // your API key
+      });
+
+
 
   if process.env.TRACKING
     include ./tracking.pug
